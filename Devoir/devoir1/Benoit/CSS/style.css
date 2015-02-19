@@ -1,0 +1,41 @@
+body {
+margin-left: auto;
+margin-right: auto;
+width: 800px;
+}
+
+body header {
+	background-color: grey;
+	height: 95px;
+	padding-left: 10px;
+	padding-top: 5px;
+	width: 790px;
+}
+
+body aside {
+	background-color: yellow;
+	height: 500px;
+	width: 150px;
+	float: left;
+}
+
+body content {
+	background-color: red;
+	height: 495px;
+	width: 640px;
+	float: left;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+body footer {
+	background-color:green;
+	height: 100px;
+	clear: both;
+}
+
+body footer img{
+	height: 100px;
+	float: left;
+	margin-right: 10px;
+}

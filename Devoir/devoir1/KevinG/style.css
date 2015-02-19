@@ -1,0 +1,46 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+
+header{
+	width: 100%;
+	height: 100px;
+	background-color: red;
+}
+
+
+
+
+aside{
+	width: 20%;
+	height: 532px;
+	float: left;
+	background-color: blue;
+	color: white;
+}
+
+section{
+	width: 100%;
+	height: 532px;
+	background-color: green;
+	color:white;
+}
+
+footer{
+	width: 100%;
+	height: 150px;
+	background-color: black;
+}
+
+footer img {
+	height: 110px;
+	margin-top: 20px;
+	margin-left: 20px;
+	float: left;
+}
+
+footer p{
+	float: right;
+	color: white;
+}

@@ -1,0 +1,31 @@
+body{
+	width:100%;
+	margin:auto;
+}
+
+header{
+	background-color:blue;
+	height:200px;
+	width:1024px;
+}
+
+aside{
+	background-color:yellow;
+	height:700px;
+	width:300px;
+	float:left;
+}
+
+content{
+	background-color:red;
+	height:700px;
+	width:724px;
+	float:left;
+}
+
+footer{
+	clear:both;
+	background-color:green;
+	height:200px;
+	width:1024px;
+}

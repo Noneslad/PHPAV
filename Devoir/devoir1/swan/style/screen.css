@@ -1,0 +1,42 @@
+body {
+	margin: 0;
+}
+header {
+	background-color: #FF7070;
+	height: 250px;
+	color: black;
+	padding: 25px;
+}
+header h1 {
+	margin: 0;
+	
+}
+.content {
+	float: right;
+	width: 85%;
+	height: 500px;
+}
+aside {
+	background-color: #ABDCFF;
+	width: 15%;
+	height: 500px;
+	float: left;
+	padding-top: 25px;
+}
+aside ul {
+	list-style-type: none
+}
+footer {
+	height: 200px;
+	background-color: #464646;
+	clear: left;
+	color: white;
+}
+footer img {
+	height: 200px;
+	float: left;
+}
+#adresse_boite {
+	float: right;
+	margin: 25px;
+}
