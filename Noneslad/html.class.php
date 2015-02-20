@@ -123,14 +123,14 @@ class html {
     //BALISE BR
     public function br($nb_br = 1) {
         $r = "";
-        for ($i = 0; $i <= $nb_br; $i++) {
+        for ($i = 0; $i < $nb_br; $i++) {
             $r .= '<br />' . "\n";
         }
         echo $r;
     }
     public function get_br($nb_br = 1, $attributs = array()) {
         $r = "";
-        for ($i = 0; $i <= $nb_br; $i++) {
+        for ($i = 0; $i < $nb_br; $i++) {
             $r .= '<br';
             if (!empty($attributs)) {
                 foreach ($attributs as $k => $v) {
@@ -363,7 +363,7 @@ class html {
     }
     
     //BALISE SMALL
-     public function small($text, $attributs = array()) {
+    public function small($text, $attributs = array()) {
         $r = "";
         $r .= '<small';
         if (!empty($attributs)) {
@@ -703,10 +703,10 @@ class html {
     }
 
     
-    public function ficheDevoir($eleve,$href,$text,$note){
+    public function ficheDevoir($eleve,$href,$text,$note,$couleurBtn = 'default'){
         $color = tools::getColorForNote($note);
         $this->open_p(array('class'=>''));
-            $this->span($this->boutonLien($eleve, $href, 'default',200),array('class'=>''));
+            $this->span($this->boutonLien($eleve, $href, $couleurBtn, 200),array('class'=>''));
             $this->span($text,array('class'=>'','style'=>'max-width:200px'));
             $this->span($note != 'NN' ? $note.'/20' : $note, array('class'=>'label label-'.$color.' pull-right','style'=>'display: inline-block; width:50px; line-height: 40px;'));
         $this->close_p();
