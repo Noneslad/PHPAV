@@ -27,7 +27,7 @@ $html->open_panel('Devoir N°1', 'warning');
                 'Abdel',
                 'Devoir/devoir1/Abdel/index.php',
                 "Quelques soucis de CSS, la mécanique des includes fonctionne !",
-                12);
+                13);
         $html->ficheDevoir(
                 'Anne-Caroline',
                 'Devoir/devoir1/Anne-Caroline/exercice.php',
@@ -46,7 +46,7 @@ $html->open_panel('Devoir N°1', 'warning');
         $html->ficheDevoir(
                 'Benoit',
                 'Devoir/devoir1/Benoit/index.php',
-                "Ne manque l'utilisation de la boucle for ...",
+                "Ne manque que l'utilisation de la boucle for ...",
                 17);
         $html->ficheDevoir(
                 'KevinG',
@@ -73,10 +73,10 @@ $html->open_panel('Devoir N°1', 'warning');
                 'Devoir/devoir1/Swan/index.php',
                 "Affichage relatif.. mais pas centré"
                 ,15);
-        $html->ficheDevoir('Galaye','Devoir/devoir1/galaye/index.php',"Loading ... Pleae Wait !",'NN');
-        $html->ficheDevoir('Remi','Devoir/devoir1/remi/index.php',"Loading ... Pleae Wait !",'NN');
-        $html->ficheDevoir('Prince','Devoir/devoir1/prince/index.php',"Loading ... Pleae Wait !",'NN');
-        $html->ficheDevoir('Lucas','Devoir/devoir1/lucas/index.php',"Loading ... Pleae Wait !",'NN');
+        $html->ficheDevoir('Galaye','Devoir/devoir1/galaye/index.php',"Loading ... Please Wait !",'NN');
+        $html->ficheDevoir('Remi','Devoir/devoir1/remi/index.php',"Loading ... Please Wait !",'NN');
+        $html->ficheDevoir('Prince','Devoir/devoir1/prince/index.php',"Loading ... Please Wait !",'NN');
+        $html->ficheDevoir('Lucas','Devoir/devoir1/lucas/index.php',"Loading ... Please Wait !",'NN');
         $html->br(3);
         $html->ficheDevoir('Correction','Devoir/devoir1/correction/index.php',"un exemple de ce qui été attendu ! !",20,'success');
     $html->close_panel();
