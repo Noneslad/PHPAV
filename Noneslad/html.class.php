@@ -726,7 +726,7 @@ class html {
     public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
-                $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien));
+                $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
             $this->close_div();
             $this->open_div(array('class' => 'media-body'));
                 $this->h4($titre, array('class' => 'media-heading'));
