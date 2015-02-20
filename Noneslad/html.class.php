@@ -576,6 +576,9 @@ class html {
     public function boutonLien($text,$href,$type,$taille=null){
         echo '<a href = "'.$href.'" class = "btn btn-'.$type.'" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
     }
+    public function boutonLienDisabled($text,$href,$type,$taille=null){
+        echo '<a href = "'.$href.'" class = "btn btn-'.$type.'" disabled="disabled" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
+    }
     public function bouton($text, $attributs = array()) {
         $r = "";
         $r .= '<input type = "button" value = "' . $text . '"';
