@@ -69,59 +69,7 @@ class model {
             echo $exc->getTraceAsString();
         }
     }
-
-    public function insert() {
-        // On créé une variable qui recevra la requete SQL !
-        
-        // get_class() va retourner le nom de la classe passée en paramètre
-        $sql = "insert into " . get_class($this) . " (";
-        
-        // On boucle sur les propriétés de l'objet grace à la fonction
-        // get_object_vars() qui retourrne un tableau des propriété valorisés de l'objet
-        foreach (get_object_vars($this) as $key => $value) {
-             // pour "écrire" le nom de chaque propriété suivi d'une virgule
-            $sql.= ' `' . $key . '`,';
-        }
-        
-        // on supprime la dernière virgule inutile
-        $sql = substr($sql, 0, -1);
-        // on poursuit l'ecriture de la requete SQL
-        $sql.= ") values (";
-        
-        // Puis on boucle de nouveau sur get_object_vars()
-        foreach (get_object_vars($this) as $key => $value) {
-            // pour récupérer kes valeurs des propriétés
-            // On utilise le systeme de requetes preparé de PDO => cf Prezi PDO
-            $sql.= ' :' . $key . ',';
-        }
-        // on supprime encore une foisla dernière virgule inutile
-        $sql = substr($sql, 0, -1);
-        // on termine la requete !
-        $sql.= ');';
-        
-        // On prepare une requete à partir du code SQL généré
-        $rq = $this->cnx->prepare($sql);
-        
-        // on initialise un tableau pour y stocker 
-        // les valeurs des propriété à enregistrer en base de données
-        $tab_data = array();
-        
-        // on boucle sur get_object_vars()
-        foreach (get_object_vars($this) as $key => $value) {
-            // et on créé notre tableau au format attendu par PDO
-            // de la forme [':id'=>$id,':nom'=>$nom ... ] 
-            $tab_data[':' . $key] = $value != null ? $this->escape($value) : $value;
-        }
-        try {
-            // on execute la requete préparée avec le tableau des valeurs
-            $rq->execute($tab_data);
-            // si une erreur s'est produit, on l'affiche
-            $rq->errorCode() > 0 ? var_dump($rq->errorInfo()) : '';
-        } 
-        catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
+    
     public function select($champs = array(), $where = array(), $all = null) {
         $sql = "select ";
         if (is_array($champs) && !empty($champs)) {//si champs n'est pas vide
@@ -166,34 +114,7 @@ class model {
 //        var_dump($retour);exit;
         return $retour;
     }
-    public function update() {
-        $sql = "update " . $this->getSql_table() . " set ";
-        foreach (get_object_vars($this) as $key => $value) {
-            if ($value != null) {
-                $sql.= $key . " = :" . $key . ',';
-            }
-        }
-        $sql = substr($sql, 0, -1);
-        $sql.= " where id = " . $this->getId();
-        $rq = $this->cnx->prepare($sql);
-        $tab_data = array();
-        foreach (get_object_vars($this) as $key => $value) {
-            if ($value != null) {
-                $tab_data[':' . $key] = $this->escape($value);
-            }
-        }
-        try {
-            $rq->execute($tab_data);
-            $rq->errorCode() > 0 ? var_dump($rq->errorInfo()) : '';
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
-    public function delete() {
-        $sql = "delete from " . get_class($this) . " where id = " .$this->getId();
-        return $this->cnx->query($sql);
-    }
-
+   
     public function occurence_exist() {
         $sql = "select id from " . get_class($this) . " where id = ".$this->getId();
         $rq = $this->cnx->query($sql);
