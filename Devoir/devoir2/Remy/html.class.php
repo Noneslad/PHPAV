@@ -51,6 +51,37 @@ class html {
     public function close_body() {
         echo '</body>'. "\n";
     }
+     public function open_nav($attributs = array()) {
+        $r = '<nav';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_nav() {
+        echo '</nav>'. "\n";
+    }
+    public function open_section($attributs = array()) {
+        $r = '<section';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+  public function creaArticle($titre,$image,$comment,$soustitre,$width,$date){
+
+
+        $this->open_panel($titre,'info');
+        $this->media($soustitre,$comment,$image,$width);
+        $this->p($date,array('class'=>'text-right'));
+        $this->close_panel();
+  }
 
     /**
      * Element du Head
@@ -330,6 +361,17 @@ class html {
         $r .= '>' . "\n";
         echo $r;
     }
+     public function open_header($attributs = array()) {
+        $r = "";
+        $r .= '<header';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
     public function get_open_span($attributs = array()) {
         $r = "";
         $r .= '<span';
@@ -343,6 +385,9 @@ class html {
     }
     public function close_span() {
         echo '</span>' . "\n";
+    }
+    public function close_header() {
+        echo '</header>' . "\n";
     }
     public function get_close_span() {
         return '</span>' . "\n";
@@ -362,10 +407,53 @@ class html {
         return $r;
     }
     
+    
+
+    //BALISE SMALL
+    public function section($text, $attributs = array()) {
+        $r = "";
+        $r .= '<section';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</section>'. "\n";
+        echo $r;
+    }
+    public function video($text, $attributs = array()) {
+        $r = "";
+        $r .= '<video';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</video>'. "\n";
+        return $r;
+    }
+    //BALISE SMALL
+    public function audio($text, $attributs = array()) {
+        $r = "";
+        $r .= '<audio';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</audio>'. "\n";
+        echo $r;
+    }
     //BALISE SMALL
     public function small($text, $attributs = array()) {
         $r = "";
-        $r .= '<small';
+        $r .= '<article';
         if (!empty($attributs)) {
             foreach ($attributs as $attr => $valeur) {
                 $r .= ' ' . $attr . ' = "' . $valeur . '"';
@@ -373,21 +461,8 @@ class html {
         }
         $r .= '>';
         $r .= $text;
-        $r .= '</small>'. "\n";
+        $r .= '</article>'. "\n";
         echo $r;
-    }
-    public function get_small($text, $attributs = array()) {
-        $r = "";
-        $r .= '<small';
-        if (!empty($attributs)) {
-            foreach ($attributs as $attr => $valeur) {
-                $r .= ' ' . $attr . ' = "' . $valeur . '"';
-            }
-        }
-        $r .= '>';
-        $r .= $text;
-        $r .= '</small>'. "\n";
-        return $r;
     }
 
     /**
@@ -576,6 +651,9 @@ class html {
     public function boutonLien($text,$href,$type,$taille=null){
         echo '<a href = "'.$href.'" class = "btn btn-'.$type.'" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
     }
+     public function get_boutonLien($text,$href,$type,$taille=null){
+        return '<a href = "'.$href.'" class = "btn btn-'.$type.'" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
+    }
     public function boutonLienDisabled($text,$href,$type,$taille=null){
         echo '<a href = "'.$href.'" class = "btn btn-'.$type.'" disabled="disabled" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
     }
@@ -726,7 +804,7 @@ class html {
             $this->close_div();
     }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -738,21 +816,12 @@ class html {
         $this->close_div();
     }
     public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
-    }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
-    }
-    
-    
-    public function u8($data){
-        return utf8_encode($data);
+        $this->media($titre, $comment, $lien);
     }
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
-
 
 ?>

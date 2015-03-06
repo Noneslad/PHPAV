@@ -9,6 +9,18 @@ class html {
      * Elements DOM de Base
      */
     
+    protected $autoclose = array(
+        "area",
+        "br",
+        "hr",
+        "img",
+        "input",
+        "link",
+        "meta",
+        "param"
+    );
+
+
     //DOCTYPE
     public function doctype_html5() {
         echo '<!DOCTYPE html>'. "\n";
@@ -273,6 +285,8 @@ class html {
         $r .= '</div>' . "\n";
         return $r;
     }
+    
+    
 
     //BALISE P
     public function open_p($attributs = array()) {
@@ -726,7 +740,7 @@ class html {
             $this->close_div();
     }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px', $date = null){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -734,25 +748,183 @@ class html {
             $this->open_div(array('class' => 'media-body'));
                 $this->h4($titre, array('class' => 'media-heading'));
                 $this->p($comment);
+                if(!empty($date)) {
+                    $this->p($date, array("class" => "text-right"));
+                }
             $this->close_div();
         $this->close_div();
     }
-    public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
-    }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
+    
+    public function mediaPDF($titre,$comment,$lien)
+    {
+        $this->media($titre, $comment, $lien);
     }
     
-    
-    public function u8($data){
-        return utf8_encode($data);
+    public function header($text, $args = array())
+    {
+        $this->element("header", $text, $args);
     }
+    
+    public function open_header($args = array())
+    {
+        $this->open_element("header", $args);
+    }
+    
+    public function close_header()
+    {
+        $this->close_element("header");
+    }
+    
+    public function footer($text, $args = array()) {
+        $this->element("footer", $text, $args);
+    }
+
+    public function open_footer($args = array()) {
+        $this->open_element("footer", $args);
+    }
+
+    public function close_footer() {
+        $this->close_element("footer");
+    }
+    
+    public function nav($text, $args = array()) {
+        $this->element("nav", $text, $args);
+    }
+
+    public function open_nav($args = array()) {
+        $this->open_element("nav", $args);
+    }
+
+    public function close_nav() {
+        $this->close_element("nav");
+    }
+    
+    public function aside($text, $args = array()) {
+        $this->element("aside", $text, $args);
+    }
+
+    public function open_aside($args = array()) {
+        $this->open_element("aside", $args);
+    }
+
+    public function close_aside() {
+        $this->close_element("aside");
+    }
+    
+    public function section($text, $args = array()) {
+        $this->element("section", $text, $args);
+    }
+
+    public function open_section($args = array()) {
+        $this->open_element("section", $args);
+    }
+
+    public function close_section() {
+        $this->close_element("section");
+    }
+    
+    public function article($text, $args = array()) {
+        $this->element("article", $text, $args);
+    }
+
+    public function open_article($args = array()) {
+        $this->open_element("article", $args);
+    }
+
+    public function close_article() {
+        $this->close_element("article");
+    }
+    
+    public function video($width, $height, array $src, $args = array(), $controls = null) {
+        if(!empty($controls)) {
+            $args['controls'] = $controls;
+        }
+        $args["width"] = $width;
+        $args["height"] = $height;
+        $this->open_element("video", $args);
+            foreach($src as $url) {
+                $this->element("source", "", array("src" => $url));
+            }
+        $this->close_element("video");
+    }
+    
+    public function audio(array $src, $args = array(), $controls = null) {
+        if (!empty($controls)) {
+            $args['controls'] = $controls;
+        }
+        $this->open_element("audio", $args);
+        foreach ($src as $url) {
+            $this->element("source", "", array("src" => $url));
+        }
+        $this->close_element("audio");
+    }
+
+    public function fiche_article($titre, $contenu, $sous_titre, $img = "./img/icoPDF.png", $lien_image="#", $date = null)
+    {
+        if(empty($date)) {
+            $today = new \DateTime();
+            $date = $today->format("d-m-Y");
+        }
+        $this->open_panel($titre, "success");
+        $this->media($sous_titre, $contenu, $lien_image, $img, $width = "40px", $date);
+        $this->close_panel();
+    }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////// FACTORICATION ///////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    public function element($element, $text= "", $args = array(), $print = true) {
+        $r = "<$element";
+        if (is_array($args)) {
+            foreach ($args as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>';
+        if(!in_array($element, $this->autoclose)) {
+            $r .= $text;
+            $r .= "</$element>" . "\n";
+        }
+        if ($print) {
+            echo $r;
+        } else {
+            return $r;
+        }
+    }
+
+    public function open_element($element, $args = array(), $print = true) {
+        $r = "<$element";
+        if (is_array($args)) {
+            foreach ($args as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>';
+        if ($print) {
+            echo $r;
+        } else {
+            return $r;
+        }
+    }
+
+    public function close_element($element, $print = true) {
+        $r = "</$element>" . "\n";
+        if ($print) {
+            echo $r;
+        } else {
+            return $r;
+        }
+    }
+
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
+
 
 
 ?>

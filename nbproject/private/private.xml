@@ -3,44 +3,62 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/templates/aside.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/templates/footer.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/CSS/style.css</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/header.html</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/Footer.html</file>
             <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/Content.html</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/Aside.html</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Pierre-Yves/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Pierre-Yves/hello.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Pierre-Yves/css/master.css</file>
             <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Anne-Caroline/footer.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Anne-Caroline/exercice.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/swan/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/swan/head.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/swan/header.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/swan/aside.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/swan/close.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/KevinP/test1.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/header.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/footer.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/aside.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/css/style.css</file>
-            <file>file:/C:/wamp/www/PHPAV/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Cours/CV/cv.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Cours/CV/helpers/css/euroc.css</file>
-            <file>file:/C:/wamp/www/PhpAv/Cours/CV/config.inc.php</file>
-            <file>file:/C:/wamp/www/PHPAV/Noneslad/html.class.php</file>
-            <file>file:/C:/wamp/www/PHPAV/Class/pageWeb.php</file>
-            <file>file:/C:/wamp/www/PHPAV/config.inc</file>
             <file>file:/C:/wamp/www/PHPAV/Noneslad/tools.class.php</file>
-            <file>file:/C:/wamp/www/PHPAV/views/home.php</file>
-            <file>file:/C:/wamp/www/PHPAV/views/aside.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Abdel/index.php</file>
-            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/templates/header.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/Aside.html</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/correction/views/aside.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/correction/views/header.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Swan/close.php</file>
+            <file>file:/C:/wamp/www/PHPAV/config.inc</file>
             <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Mawuli/test.php</file>
+            <file>file:/C:/wamp/www/PHPAV/nbproject/private/private.properties</file>
+            <file>file:/C:/wamp/www/PHPAV/views/devoirs/devoir2.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/CSS/style.css</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Pierre-Yves/index.php</file>
+            <file>file:/C:/wamp/www/PHPAV/views/devoirs/asideDevoirs.php</file>
+            <file>file:/C:/wamp/www/PHPAV/nbproject/project.properties</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/header.php</file>
+            <file>file:/C:/wamp/www/PHPAV/Class/pageWeb.php</file>
+            <file>file:/C:/wamp/www/PHPAV/views/layout/content.php</file>
+            <file>file:/C:/wamp/www/PHPAV/views/cours/asideCours.php</file>
+            <file>file:/C:/wamp/www/PHPAV/nbproject/private/config.properties</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Anne-Caroline/exercice.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Cours/CV/config.inc.php</file>
+            <file>file:/C:/wamp/www/PHPAV/Class/model.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/header.html</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/correction/views/footer.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Cours/CV/cv.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/aside.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/correction/views/content.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/index.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Swan/index.php</file>
+            <file>file:/C:/wamp/www/PHPAV/Class/rendu.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/KevinP/test1.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Abdel/index.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/templates/footer.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Cours/CV/helpers/css/euroc.css</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/Footer.html</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/css/style.css</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Abdel/css/style.css</file>
+            <file>file:/C:/wamp/www/PHPAV/Class/eleve.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Swan/head.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/correction/index.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Pierre-Yves/hello.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/footer.php</file>
+            <file>file:/C:/wamp/www/PHPAV/nbproject/project.xml</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Swan/aside.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Bastien/index.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Swan/header.php</file>
+            <file>file:/C:/wamp/www/PHPAV/Class/devoir.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Benoit/index.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/templates/header.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Pierre-Yves/css/master.css</file>
+            <file>file:/C:/wamp/www/PHPAV/index.php</file>
+            <file>file:/C:/wamp/www/PHPAV/Noneslad/html.class.php</file>
+            <file>file:/C:/wamp/www/PhpAv/Devoir/devoir1/Audrey/templates/aside.php</file>
+            <file>file:/C:/wamp/www/PHPAV/index.html</file>
+            <file>file:/C:/wamp/www/PHPAV/views/home.php</file>
             <file>file:/C:/wamp/www/PHPAV/views/devoirs/devoir1.php</file>
         </group>
     </open-files>

@@ -1,0 +1,34 @@
+html{
+
+	width: 800px;
+	margin: auto;
+
+}
+header{
+
+	width: 800px;
+	height: 125px;
+	background-color: red;
+}
+section{
+
+	width: 550px;
+	height: 500px;
+	background-color: green;
+	float:left;
+}
+aside{
+
+	width: 200px;
+	height: 500px;
+	background-color: blue;
+	float: left;
+
+}
+footer{
+	margin-top: 100px;
+	width: 675px;
+	height: 675px;
+	background-color: yellow;
+	
+}

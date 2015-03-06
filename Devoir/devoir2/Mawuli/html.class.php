@@ -32,6 +32,7 @@ class html {
     //BALISE HEAD
     public function open_head() {
         echo '<head>'. "\n";
+		
     }
     public function close_head() {
         echo '</head>'. "\n";
@@ -52,6 +53,90 @@ class html {
         echo '</body>'. "\n";
     }
 
+	public function open_nav($attributs = array()) {
+        $r = '<nav';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_nav() {
+        echo '</nav>'. "\n";
+    }
+	
+	public function open_section($attributs = array()) {
+        $r = '<section';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_section() {
+        echo '</section>'. "\n";
+    }
+
+	public function open_header($attributs = array()) {
+        $r = '<header';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_header() {
+        echo '</header>'. "\n";
+    }
+	
+	public function open_aside($attributs = array()) {
+        $r = '<aside';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_aside() {
+        echo '</aside>'. "\n";
+    }
+	
+	public function open_footer($attributs = array()) {
+        $r = '<footer';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_footer() {
+        echo '</footer>'. "\n";
+    }
+
+	
+		public function open_article($attributs = array()) {
+        $r = '<article';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    public function close_article() {
+        echo '</article>'. "\n";
+    }
     /**
      * Element du Head
      */
@@ -389,7 +474,174 @@ class html {
         $r .= '</small>'. "\n";
         return $r;
     }
+    //BALISE HEADER
+    public function header($text, $attributs = array()) {
+        $r = "";
+        $r .= '<header';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</header>'. "\n";
+        echo $r;
+    }
+    public function get_header($text, $attributs = array()) {
+        $r = "";
+        $r .= '<header';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</header>'. "\n";
+        return $r;
+    }
+	
+	    //BALISE NAV
+    public function nav($text, $attributs = array()) {
+        $r = "";
+        $r .= '<nav';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</nav>'. "\n";
+        echo $r;
+    }
+    public function get_nav($text, $attributs = array()) {
+        $r = "";
+        $r .= '<nav';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</nav>'. "\n";
+        return $r;
+    }
+	
+	    //BALISE SECTION
+    public function section($text, $attributs = array()) {
+        $r = "";
+        $r .= '<section';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</section>'. "\n";
+        echo $r;
+    }
+    public function get_section($text, $attributs = array()) {
+        $r = "";
+        $r .= '<section';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</section>'. "\n";
+        return $r;
+    }
+	
+	    //BALISE VIDEO
+    public function video($text, $attributs = array()) {
+        $r = "";
+        $r .= '<video controls';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</video>'. "\n";
+        echo $r;
+    }
+    public function get_video($text, $attributs = array()) {
+        $r = "";
+        $r .= '<video';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</video>'. "\n";
+        return $r;
+    }
+	
+	    //BALISE AUDIO
+    public function audio($text, $attributs = array()) {
+        $r = "";
+        $r .= '<audio controls';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</audio>'. "\n";
+        echo $r;
+    }
+    public function get_audio($text, $attributs = array()) {
+        $r = "";
+        $r .= '<audio';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</audio>'. "\n";
+        return $r;
+    }
 
+	    //BALISE ARTICLE
+    public function article($text, $attributs = array()) {
+        $r = "";
+        $r .= '<article';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</article>'. "\n";
+        echo $r;
+    }
+    public function get_article($text, $attributs = array()) {
+        $r = "";
+        $r .= '<article';
+        if (!empty($attributs)) {
+            foreach ($attributs as $attr => $valeur) {
+                $r .= ' ' . $attr . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</article>'. "\n";
+        return $r;
+    }
+	
     /**
      * Elements de liste
      */
@@ -579,6 +831,13 @@ class html {
     public function boutonLienDisabled($text,$href,$type,$taille=null){
         echo '<a href = "'.$href.'" class = "btn btn-'.$type.'" disabled="disabled" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
     }
+	public function get_boutonLien($text,$href,$type,$taille=null){
+        return '<a href = "'.$href.'" class = "btn btn-'.$type.'" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
+    }
+	public function get_boutonLienDisabled($text,$href,$type,$taille=null){
+        return '<a href = "'.$href.'" class = "btn btn-'.$type.'" disabled="disabled" style="width:'.$taille.'px;">'.$text.'</a>'. "\n";
+    }
+	
     public function bouton($text, $attributs = array()) {
         $r = "";
         $r .= '<input type = "button" value = "' . $text . '"';
@@ -725,8 +984,16 @@ class html {
             $this->close_div();
             $this->close_div();
     }
+	
+	public function ficheArt($titre,$contenu,$sstitre,$img = 'img/icoPDF.png',$date){
+        $this->open_panel($titre,'info');
+		$this->media($sstitre,$contenu,'',$img);
+		$this->p($date,array('class' => 'text-right'));
+		$this->close_panel();
+            
+    }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -738,21 +1005,12 @@ class html {
         $this->close_div();
     }
     public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
-    }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
-    }
-    
-    
-    public function u8($data){
-        return utf8_encode($data);
+        $this->media($titre, $comment, $lien);
     }
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
-
 
 ?>

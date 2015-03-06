@@ -4,7 +4,7 @@ use Noneslad\ClassMetier\cours;
 
 $html = new html();
 
-$idCours = 2;
+$idCours = 1;
 
 $dbCours = new Noneslad\ClassMetier\cours();
 $dbCours->setId($idCours);

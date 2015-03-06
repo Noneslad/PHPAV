@@ -726,7 +726,7 @@ class html {
             $this->close_div();
     }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -738,21 +738,130 @@ class html {
         $this->close_div();
     }
     public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
+        $this->media($titre, $comment, $lien);
     }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
-    }
+
+
+    /*********************************
+     *** TRAVAIL DE BASTIEN MARTIN ***
+     *********************************/
+
+    /**
+     * Element HTML5 (Header, Nav, Section, Video, Audio, Article, Footer, Aside)
+     */
     
-    
-    public function u8($data){
-        return utf8_encode($data);
+    // HEADER
+    public function header($attributs = array()) {
+        $this->open_html5_tag("header", $attributs);
     }
+
+    public function header_close() {
+        $this->close_html5_tag("header");
+    }
+
+    // NAV
+    public function nav($attributs = array()) {
+        $this->open_html5_tag("nav", $attributs);
+    }
+
+    public function nav_close() {
+        $this->close_html5_tag("nav");
+    }
+
+    // SECTION
+    public function section($attributs = array()) {
+        $this->open_html5_tag("section", $attributs);
+    }
+
+    public function section_close() {
+        $this->close_html5_tag("section");
+    }
+
+    // VIDEO
+    public function video($attributs = array()) {
+        $this->open_html5_tag("video", $attributs);
+    }
+
+    public function video_close() {
+        $this->close_html5_tag("video");
+    }
+
+    // AUDIO
+    public function audio($attributs = array()) {
+        $this->open_html5_tag("audio", $attributs);
+    }
+
+    public function audio_close() {
+        $this->close_html5_tag("audio");
+    }
+
+    // ARTICLE
+    public function article($attributs = array()) {
+        $this->open_html5_tag("article", $attributs);
+    }
+
+    public function article_close() {
+        $this->close_html5_tag("article");
+    }
+
+    // FOOTER
+    public function footer($attributs = array()) {
+        $this->open_html5_tag("footer", $attributs);
+    }
+
+    public function footer_close() {
+        $this->close_html5_tag("footer");
+    }
+
+    // ASIDE
+    public function aside($attributs = array()) {
+        $this->open_html5_tag("aside", $attributs);
+    }
+
+    public function aside_close() {
+        $this->close_html5_tag("aside");
+    }
+
+    // METHODES
+    protected function html5_tag($tag, $attributs = array()) {
+        $html_tag = "";
+        $html_tag .= '<' . $tag;
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $html_tag .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $html_tag .= '>' . "\n";
+        return $html_tag;
+    }
+
+    protected function open_html5_tag($tag, $attributs = array()) {
+        echo $this->html5_tag($tag, $attributs);
+    }
+
+    protected function close_html5_tag($tag) {
+        echo '</' . $tag . '>' . "\n";
+    }
+
+    // methode jamais appelee
+    /*public function get_html5_tag($tag = array()) {
+        return $this->html5_tag($tag, $attributs);
+    }*/
+
+    /**
+     * Fiche Article
+     */
+    public function FicheArticle($titre, $contenu, $sstitre, $image = 'http://bastienmartin.fr/images_cours_php/No_image.png', $date) {
+        $this->open_panel($titre, "success");
+        $this->media($sstitre, $contenu, $image, $image, $width='60px');
+        $this->p($date,array('class'=>'text-right'));
+        $this->close_panel();
+    }
+
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
-
 
 ?>

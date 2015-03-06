@@ -52,6 +52,68 @@ class html {
         echo '</body>'. "\n";
     }
 
+
+//BALISE HEADER
+    public function open_header($attributs = array()) {
+        $r = '<header';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>'. "\n";
+        echo $r;
+    }
+    public function close_header() {
+        echo '</header>'. "\n";
+    }
+
+  //BALISE ASIDE
+    public function open_aside($attributs = array()) {
+        $r = '<aside';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>'. "\n";
+        echo $r;
+    }
+    public function close_aside() {
+        echo '</aside>'. "\n";
+    }
+
+      //BALISE SECTION
+    public function open_section($attributs = array()) {
+        $r = '<section';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>'. "\n";
+        echo $r;
+    }
+    public function close_section() {
+        echo '</section>'. "\n";
+    }
+
+         //BALISE FOOTER
+    public function open_footer($attributs = array()) {
+        $r = '<footer';
+        if (is_array($attributs)) {
+            foreach ($attributs as $cle => $valeur) {
+                $r .= ' ' . $cle . ' = "' . $valeur . '"';
+            }
+        }
+        $r .= '>'. "\n";
+        echo $r;
+    }
+    public function close_footer() {
+        echo '</footer>'. "\n";
+    }
+
+
     /**
      * Element du Head
      */
@@ -726,7 +788,7 @@ class html {
             $this->close_div();
     }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -738,21 +800,12 @@ class html {
         $this->close_div();
     }
     public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
-    }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
-    }
-    
-    
-    public function u8($data){
-        return utf8_encode($data);
+        $this->media($titre, $comment, $lien);
     }
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
-
 
 ?>

@@ -5,7 +5,7 @@ $html = new html();
 $html->open_panel('Devoir N°1', 'warning');
     $html->open_panel('Consignes', 'success');
         $html->media("Réaliser le template d'un site en PHP",
-                "L'objectif de cet exercie était de manipuler PHP"
+                "L'objectif de cet exercice était de manipuler PHP"
                 . "pour lui faire faire ce pour quoi il à été conçu : gerer et administrer des pages web."
                 . "La consigne était la suivante :".$html->get_br(2)
                 . $html->get_sp(5)." - Réaliser un site avec un header un aside, un content et un footer.".$html->get_br()

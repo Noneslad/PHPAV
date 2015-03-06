@@ -225,6 +225,259 @@ class html {
      * Element Html de contenant
      */
     
+
+//BALISE HEADER
+ 
+    public function open_header($attributs = array()) {
+        $r = "";
+        $r .= '<header';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+
+    public function get_open_header($attributs = array()) {
+        $r = "";
+        $r .= '<header';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+
+    public function close_header() {
+        echo '</header>' . "\n";
+    }
+    public function get_close_header() {
+        return '</header>' . "\n";
+    }
+    public function header($text, $attributs = array()) {
+        $r = $this->open_header($attributs);
+        $r .= $text;
+        $r .= '</header>' . "\n";
+        echo $r;
+    }
+    public function get_header($text, $attributs = array()) {
+        $r = "";
+        $r .= '<header';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>';
+        $r .= $text;
+        $r .= '</header>' . "\n";
+        return $r;
+    }
+
+
+
+//BALISE FOOTER 
+
+     public function open_footer($attributs = array()) {
+        $r = "";
+        $r .= '<footer';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+
+    public function get_open_footer($attributs = array()) {
+        $r = "";
+        $r .= '<footer';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+
+     public function close_footer() {
+        echo '</footer>' . "\n";
+    }
+    public function get_close_footer() {
+        return '</footer>' . "\n";
+    }
+
+//BALISE NAV
+
+     public function open_nav($attributs = array()) {
+        $r = "";
+        $r .= '<nav';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+  
+    public function get_open_nav($attributs = array()) {
+        $r = "";
+        $r .= '<nav';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+
+     public function close_nav() {
+        echo '</nav>' . "\n";
+    }
+    public function get_close_nav() {
+        return '</nav>' . "\n";
+    }
+
+//BALISE ASIDE
+
+     public function open_aside($attributs = array()) {
+        $r = "";
+        $r .= '<aside';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+
+    public function get_open_aside($attributs = array()) {
+        $r = "";
+        $r .= '<aside';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+
+     public function close_aside() {
+        echo '</aside>' . "\n";
+    }
+    public function get_close_aside() {
+        return '</aside>' . "\n";
+    }
+
+//BALISE SECTION 
+
+     public function open_section($attributs = array()) {
+        $r = "";
+        $r .= '<section';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+
+    public function get_open_section($attributs = array()) {
+        $r = "";
+        $r .= '<section';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+
+     public function close_section() {
+        echo '</section>' . "\n";
+    }
+    public function get_close_div() {
+        return '</section>' . "\n";
+    }
+    
+//BALISE VIDEO
+
+     public function video($src, $controls = true, $width  = '400px', $height = '200px' ) {
+        $r = "";
+        $r .= '<video ';
+        $r .=  $controls == true ? 'controls ' : '';
+        $r .= "width = '".$width." '";
+        $r .= "height = '".$height." '";
+        $r .= '>' . "\n";
+        $r.= "<source src='".$src."' >";
+        $r .='</video>';
+        echo $r;
+    }    
+    
+
+//BALISE AUDIO
+  public function audio($src, $controls = true ) {
+      $r = "";
+      $r .= '<audio ';
+      $r .=  $controls == true ? 'controls ' : '';
+      $r .= '>' . "\n";
+      $r.= "<source src='".$src."' >";
+   $r .='</audio>';
+      echo $r;
+
+
+
+
+
+  }
+    
+
+//BALISE ARTICLE
+
+     public function open_article($attributs = array()) {
+        $r = "";
+        $r .= '<article';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+
+    public function get_open_article($attributs = array()) {
+        $r = "";
+        $r .= '<article';
+        if (is_array($attributs)) {
+            foreach ($attributs as $k => $v) {
+                $r .= ' ' . $k . ' = "' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+ 
+
+  public function close_article() {
+        echo '</article>' . "\n";
+    }
+    public function get_close_article() {
+        return '</article>' . "\n";
+    }
+
     //BALISE DIV
     public function open_div($attributs = array()) {
         $r = "";
@@ -726,7 +979,7 @@ class html {
             $this->close_div();
     }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png',$width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -738,21 +991,12 @@ class html {
         $this->close_div();
     }
     public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
-    }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
-    }
-    
-    
-    public function u8($data){
-        return utf8_encode($data);
+        $this->media($titre, $comment, $lien);
     }
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
-
 
 ?>

@@ -237,6 +237,7 @@ class html {
         $r .= '>' . "\n";
         echo $r;
     }
+    
     public function get_open_div($attributs = array()) {
         $r = "";
         $r .= '<div';
@@ -248,12 +249,15 @@ class html {
         $r .= '>' . "\n";
         return $r;
     }
+    
     public function close_div() {
         echo '</div>' . "\n";
     }
     public function get_close_div() {
         return '</div>' . "\n";
     }
+    
+    
     public function div($text, $attributs = array()) {
         $r = $this->open_div($attributs);
         $r .= $text;
@@ -274,6 +278,168 @@ class html {
         return $r;
     }
 
+    // Balise header
+    public function open_header($attributs = array()){
+        $r = "";
+        $r .= '<header';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    
+    public function get_open_header($attributs = array()){
+        $r = "";
+        $r .= '<header';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+    
+    public function header($text, $attributs = array()){
+        $r = $this->get_open_header();
+        $r .= $text;
+        $r .= '</header>' . "\n";
+        echo $r;
+    }
+    
+    public function close_header() {
+        echo '</header>' . "\n";
+    }
+    
+    // Balise nav
+    public function open_nav($attributs = array()){
+        $r = "";
+        $r .= '<nav';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    
+    public function close_nav() {
+        echo '</nav>' . "\n";
+    }
+    
+    // Balise aside
+    public function open_aside($attributs = array()){
+        $r = "";
+        $r .= '<aside';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    
+    public function close_aside() {
+        echo '</aside>' . "\n";
+    }
+    
+    // Balise footer
+    public function open_footer($attributs = array()){
+        $r = "";
+        $r .= '<footer';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    
+    public function close_footer() {
+        echo '</footer>' . "\n";
+    }
+    
+    // Balise section
+    public function open_section($attributs = array()){
+        $r = "";
+        $r .= '<section';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    
+    public function close_section() {
+        echo '</section>' . "\n";
+    }
+    
+    // Balise video
+    
+    public function video($src, $controls=true, $width=480){
+        $r = '<video width="' . $width . '"';
+        if($controls){
+            $r .= ' controls';
+        }
+        $r .= '>';
+        $type = substr($src, strrpos($src, '.')+1);
+        $r .= '<source src="' . $src . '"';
+        $r .= ' type="video/' . $type . '">';
+        $r .= '</video>';
+        echo $r;
+    }
+    
+    // Balise audio
+    public function audio($src, $controls=true){
+        $r = '<audio';
+        if($controls){
+            $r .= ' controls';
+        }
+        $r .= '>';
+        $type = substr($src, strrpos($src, '.')+1);
+        $r .= '<source src="' . $src . '"';
+        $r .= ' type="audio/' . $type . '">';
+        $r .= '</audio>';
+        echo $r;
+    }
+    
+    // Balise article
+    public function open_article($attributs = array()){
+        $r = "";
+        $r .= '<article';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        echo $r;
+    }
+    
+    public function get_open_article($attributs = array()){
+        $r = "";
+        $r .= '<article';
+        if(is_array($attributs)){
+            foreach($attributs as $k => $v){
+                $r .= ' ' . $k . ' ="' . $v . '"';
+            }
+        }
+        $r .= '>' . "\n";
+        return $r;
+    }
+    
+    public function close_article() {
+        echo '</article>' . "\n";
+    }
+    
     //BALISE P
     public function open_p($attributs = array()) {
         $r = "";
@@ -726,7 +892,7 @@ class html {
             $this->close_div();
     }
     
-    public function media($titre,$comment,$lien,$image = IMG_ICON_PDF,$width = '40px'){
+    public function media($titre,$comment,$lien,$image = 'img/icoPDF.png', $width = '40px'){
         $this->open_div(array('class' => 'media'));
             $this->open_div(array('class' => 'media-left'));
                 $this->a($this->get_img(array('src' => $image, 'width' => $width)), array('href' => $lien,'target'=>'_blank'));
@@ -734,25 +900,24 @@ class html {
             $this->open_div(array('class' => 'media-body'));
                 $this->h4($titre, array('class' => 'media-heading'));
                 $this->p($comment);
+                $this->p(date('d-m-Y'), array('class'=>'text-right'));
             $this->close_div();
         $this->close_div();
     }
     public function mediaPDF($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien );
-    }
-    public function mediaVideo($titre,$comment,$lien){
-        $this->media($titre, $comment, $lien, IMG_ICON_VIDEO);
+        $this->media($titre, $comment, $lien);
     }
     
-    
-    public function u8($data){
-        return utf8_encode($data);
+    //  Affichage article
+    public function fiche_article($titre, $ss_titre, $contenu, $img = 'img/icoPDF.png', $width=50){
+        $this->open_panel($titre, "warning");
+        $this->media($ss_titre, $contenu, "", $img, $width);
+        $this->close_panel();
     }
 }
 
 function toggle_color($test, $color1 = '#D8D8D8', $color2 = '#E8E8E8') {
     return $test == $color1 ? $color2 : $color1;
 }
-
 
 ?>
