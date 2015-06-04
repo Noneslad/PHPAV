@@ -3,11 +3,14 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 06 Mars 2015 à 09:45
+-- Généré le :  Ven 05 Juin 2015 à 00:05
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -80,14 +83,15 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   `prenom` varchar(150) DEFAULT NULL,
   `formation` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `eleve`
 --
 
 INSERT INTO `eleve` (`id`, `nom`, `prenom`, `formation`) VALUES
-(1, 'ALAMI AROUSSI ', 'Abdel', 'CRW(Concepteur Réalisateur Web)');
+(1, 'Martin', 'Joseph', 'Normal Sup 2I !'),
+(2, 'Eric', 'Gruntenberg !', 'DiplÃ´me d''ingÃ©nieur en astro-physique');
 
 -- --------------------------------------------------------
 
@@ -135,13 +139,6 @@ CREATE TABLE IF NOT EXISTS `rendu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Contenu de la table `rendu`
---
-
-INSERT INTO `rendu` (`id`, `idDevoir`, `idEleve`, `lienDemo`, `commentaire`, `note`) VALUES
-(1, 1, 1, '', 'Quelques soucis de CSS, la mécanique des includes fonctionne !', 13);
-
---
 -- Contraintes pour les tables exportées
 --
 
@@ -155,8 +152,9 @@ ALTER TABLE `mediacours`
 -- Contraintes pour la table `rendu`
 --
 ALTER TABLE `rendu`
-  ADD CONSTRAINT `rendu_ibfk_1` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`id`),
   ADD CONSTRAINT `rendu_ibfk_2` FOREIGN KEY (`idDevoir`) REFERENCES `devoir` (`id`);
+SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
