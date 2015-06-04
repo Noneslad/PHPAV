@@ -1,6 +1,7 @@
 <?php
 
-require_once 'html.class.php';
+namespace Noneslad\HTML;
+
 
 
 class none_form{
@@ -312,7 +313,7 @@ class none_form{
 		}
 		$r .= '>';
 		if(is_array($options)){
-                        $r .= '<option value = "nulle" selected = "selected" disabled>Séléctionner ici votre document des ventes</option>';
+                        $r .= '<option value = "nulle" selected = "selected" disabled>Sï¿½lï¿½ctionner ici votre document des ventes</option>';
 			foreach($options as $valeur => $affichage){
                             $rajout_espace = 9 - strlen($affichage['doc_des_ventes_code']);
                             $rajout_espace += 8;
@@ -361,7 +362,7 @@ class none_form{
 		}
 		$r .= '>';
 		if(is_array($options)){
-                        $r .= '<option value = "nulle" selected = "selected" disabled>Défaut</option>';
+                        $r .= '<option value = "nulle" selected = "selected" disabled>Dï¿½faut</option>';
 			foreach($options as $valeur => $affichage){
                             $r .= '<option value = "'.$affichage['defaut_id'].'"><span class = "color_gris gras">'.$affichage["defaut_libelle"].'</span></option>';
 			}
@@ -392,7 +393,7 @@ class none_form{
 		if(is_array($options)){
                         $r .= '<option value = "nulle" selected = "selected" disabled>'.$premier_phrase.'</option>';
 			foreach($options as $valeur => $affichage){
-                            if($premier_phrase == "Séléctionner ici votre document des ventes"){
+                            if($premier_phrase == "Sï¿½lï¿½ctionner ici votre document des ventes"){
                                 $code = substr($affichage, 0, strpos(' de :', $affichage));
                                 $date = substr($affichage, strpos(' de : ',$affichage),-1);
                                     if($valeur == $selection)
@@ -622,7 +623,7 @@ class none_form{
                             }
                             $r .= isset($this->donnees[$champ.'_an']) ? ' value = "'.$this->donnees[$champ.'_an'].'" ' : '';
                             $r .= '/>';
-                            $r .= self::get_label('Année',array('for'=>$champ.'_annee'));
+                            $r .= self::get_label('Annï¿½e',array('for'=>$champ.'_annee'));
                         $r .= $html->get_close_span();
                         $r .= $html->get_open_span(array('id'=>'calendar_'.$num_index,'class'=>'disp_inlie_block'));
                             $r .= $html->get_img(array('id'=>'cal_img_'.$num_index,'class'=>'datepicker','src'=>'img/calendar.gif','alt'=>'Choisir une date !'));
@@ -673,7 +674,7 @@ class none_form{
                             }
                             $r .= isset($this->donnees[$champ.'_an']) ? ' value = "'.$this->donnees[$champ.'_an'].'" ' : '';
                             $r .= '/>';
-                            $r .= self::get_label('Année',array('for'=>$champ.'_annee'));
+                            $r .= self::get_label('Annï¿½e',array('for'=>$champ.'_annee'));
                         $r .= $html->get_close_span();
                         $r .= $html->get_open_span(array('id'=>'calendar_'.$num_index,'class'=>'disp_inlie_block'));
                             $r .= $html->get_img(array('id'=>'cal_img_'.$num_index,'class'=>'datepicker','src'=>'img/calendar.gif','alt'=>'Choisir une date !'));

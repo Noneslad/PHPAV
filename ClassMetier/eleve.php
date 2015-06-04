@@ -9,8 +9,12 @@ class eleve extends model{
    protected $prenom;
    protected $formation;
    
-   function __construct() {
-       
+   function __construct($id = false) {
+       parent::__construct();
+       if($id !== false){
+           $this->id = $id;
+           $this->load();
+       }
    }
    
 // <editor-fold defaultstate="collapsed" desc="Getters">
@@ -50,5 +54,7 @@ class eleve extends model{
 
 // </editor-fold>
 
-
+public function go(){
+    Echo 'Go GO GOOO !';
+}
 }

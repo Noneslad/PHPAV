@@ -17,6 +17,10 @@ $html->open_html();
                 include './views/layout/footer.php';
             $html->close_div();
         $html->close_div();
+        ?>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="http://aozora.github.io/bootplus/js/bootstrap.min.js"></script>
+        <?php
     $html->close_body();
 $html->close_html();
         
