@@ -18,4 +18,5 @@ require_once './ClassMetier/cours.php';
 require_once './ClassMetier/mediaCours.php';
 require_once './Noneslad/pageWeb.php';
 require_once './Noneslad/html.class.php';
+require_once './Noneslad/none_form.class.php';
 

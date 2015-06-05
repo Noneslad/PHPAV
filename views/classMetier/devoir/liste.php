@@ -1,9 +1,11 @@
 <?php
 use Noneslad\HTML\html;
 use Noneslad\ClassMetier\devoir;
+use Noneslad\Tools\tools;
 
 $html = new html();
 $devoir = new devoir();
+
 $devoirs = $devoir->find_all();
 foreach ($devoirs as $devoir) {
     $html->open_panel('Devoir N°'.$devoir->numero.' ', 'success');

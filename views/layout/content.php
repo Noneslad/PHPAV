@@ -4,7 +4,7 @@ use Noneslad\Composants\WEB\pageWeb;
 
 $html = new html();
 
-$html->open_div(array('class' => 'content col-lg-9'));
+$html->open_div(array('class' => 'content col-lg-9 span9'));
     $html->open_div(array('class' => 'well'));
         pageWeb::getPage();
     $html->close_div();

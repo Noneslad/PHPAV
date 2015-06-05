@@ -23,6 +23,17 @@ class tools {
     }
     return $ret;
 }
+    public static function fromForm($term){
+        if (isset($_POST['donnees'][$term]) && !empty($_POST['donnees'][$term]))
+        {
+            $ret = $_POST['donnees'][$term];
+        }
+        else
+        {
+             $ret = false;   
+        }
+        return $ret;
+    }
     public static function getColorForNote($note){
         if($note == 'NN'){
             $button = 'danger';
@@ -50,6 +61,16 @@ class tools {
         
         return $button;
     }
+    public static function setInFlashBag($key,$value){
+        $_SESSION[$key] = $value;
+    }
+    public static function getInFlashBag($key){
+        $retour = false;
+        if(isset($_SESSION[$key])){
+            $retour = $_SESSION[$key];
+        }
+        return $retour;
+    }
 }
 
 /**
@@ -69,7 +90,61 @@ class model {
             echo $exc->getTraceAsString();
         }
     }
-    
+    public function insert(){
+        $sql = "insert into ".$this->removeNamespace(get_class($this))." (";
+        foreach (get_object_vars($this) as $key => $value) {
+            if($key != 'cnx'){
+                $sql.= ' `'.$key.'`,';
+            }
+        }
+        $sql = substr($sql, 0,-1).") values (";
+        foreach (get_object_vars($this) as $key => $value) {
+            if($key != 'cnx'){
+                $sql.= ' :'.$key.',';
+            }
+        }
+        $sql = substr($sql, 0,-1).');';
+        $rq = $this->cnx->prepare($sql);
+        $tab_data =  array();
+        foreach (get_object_vars($this) as $key => $value) {
+            if($key != 'cnx'){
+                $tab_data[':'.$key]= $value != null ? $this->escape($value):$value;
+            }
+        }
+        try {
+            $rq->execute($tab_data);
+            $rq->errorCode() > 0 ? var_dump($rq->errorInfo()) : '';
+        }
+        catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    public function update(){
+        $sql = "update ".$this->removeNamespace(get_class($this))." set ";
+        foreach (get_object_vars($this) as $key => $value) {
+            if($key != 'cnx'){
+                if($value != null){
+                    $sql.= $key." = :".$key.',';
+                }
+            }
+        }
+        $sql = substr($sql, 0,-1)." where id = ".$this->getId();
+        $rq = $this->cnx->prepare($sql);
+        $tab_data =  array();
+        foreach (get_object_vars($this) as $key => $value) {
+           if($key != 'cnx'){
+                if($value != null){
+                    $tab_data[':'.$key]= $this->escape($value);
+                }
+            }
+        }
+        $rq->execute($tab_data);
+        if($rq->errorCode() > 0){
+            var_dump($rq->errorInfo());
+            echo "\n".$sql;
+        }
+   
+    }
     public function select($champs = array(), $where = array(), $all = null) {
         $sql = "select ";
         if (is_array($champs) && !empty($champs)) {//si champs n'est pas vide
@@ -83,7 +158,7 @@ class model {
         } else {
             $sql.= "* "; //sinon on prend tout !
         }
-        $sql.= " from " . $this->removeNamespace(get_class($this)); // dans la table de l'objet en cours
+        $sql.= "from " . $this->removeNamespace(get_class($this)); // dans la table de l'objet en cours
         $text_where = "";
         if (is_array($where) && !empty($where)) { // si le champ where est rempli
             $text_where .= " where "; // on ajoute le mot clé where
@@ -101,7 +176,7 @@ class model {
         }
         $sql.= $text_where;
         $retour = array();
-//        var_dump($sql);exit;
+//        var_dump($sql);
         try {
             $rq = $this->cnx->query($sql);
             $rq->errorCode() > 0 ? var_dump($rq->errorInfo()) : '';
@@ -114,7 +189,9 @@ class model {
 //        var_dump($retour);exit;
         return $retour;
     }
-   
+    public function delete(){
+        return $this->cnx->query("delete from ".$this->removeNamespace(get_class($this))." where id = ".$this->getId());
+    }
     public function occurence_exist() {
         $sql = "select id from " . get_class($this) . " where id = ".$this->getId();
         $rq = $this->cnx->query($sql);
